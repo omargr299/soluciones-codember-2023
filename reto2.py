@@ -1,24 +1,18 @@
-import os 
+from urllib.request import urlopen
 
 var = 0
 
-path = os.path.join('messages','message_02.txt')
+data = urlopen("https://codember.dev/data/message_02.txt")
+lines = data.read().decode("utf-8")
+print(lines)
 
-try:
-
-    with open(path) as file:
-        lines = file.readlines()
-      
-except:
-    print("Error al leer el archivo")
-    
 for line in lines:
-            for c in line:
-                if c=="&":
-                    print(var,end="")
-                elif c=="#":
-                    var+=1
-                elif c=="@":
-                    var-=1
-                elif c=="*":
-                    var**=2
+    for c in line:
+        if c=="&":
+            print(var,end="")
+        elif c=="#":
+            var+=1
+        elif c=="@":
+            var-=1
+        elif c=="*":
+            var**=2

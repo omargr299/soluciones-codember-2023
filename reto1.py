@@ -1,15 +1,18 @@
-import os 
+from urllib.request import urlopen
 
 counts = {}
 
-path= os.path.join('messages','message_01.txt')
+data = urlopen("https://codember.dev/data/message_01.txt")
+words = data.read().decode("utf-8").split(" ")
+print(words)
 
-with open(path) as file:
-    text = file.readlines()
-    words = text[0].split()
-    for word in words:
-        word = word.lower()
-        counts[word] = counts.get(word, 0) + 1
+for word in words:
+    word = word.lower()
+    word = word.strip()
+    word = word.replace(".", "")
+    word = word.replace(",", "")
+    word = word.replace("\n", "")
+    counts[word] = counts.get(word, 0) + 1
     
 
 output = ""
