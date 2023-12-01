@@ -14,7 +14,7 @@ for entrada in entradas:
     min_rep, max_rep = rango.split("-")
     repeticiones = re.findall(letra, clave)
     
-    
+
     if len(repeticiones) >= int(min_rep) and len(repeticiones) <= int(max_rep):
         continue
     else:
