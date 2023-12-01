@@ -9,6 +9,7 @@ email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
 location_regex = re.compile(r"[A-Z\b]")
 
 def evaluate_user(user):
+
     id,user_name,email,age,location = user.split(",")
 
     if len(id) < 1 or not id.isalnum():
